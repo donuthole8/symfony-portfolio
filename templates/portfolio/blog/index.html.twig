@@ -9,6 +9,10 @@
     </style>
 
     <h1>投稿ブログ一覧</h1>
+    <div class="row">
+        <a class="btn btn-primary" href="{{ path('blog_post') }}">記事投稿</a>
+    </div>
+    
     {% if blogs | length > 0 %}
         <table class="table" border="1">
             <thead>

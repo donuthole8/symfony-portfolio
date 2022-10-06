@@ -23,7 +23,7 @@ class BlogController extends AbstractController
     }
     
     /**
-     * @Route("/portfolio/blog/{id}", name="blog_content")
+     * @Route("/portfolio/blog/{id}", name="blog_content", requirements={"id"="\d+"})
      */
     public function showContentPage($id, EntityManagerInterface $em)
     {
@@ -34,7 +34,22 @@ class BlogController extends AbstractController
         }
 
         return $this->render('portfolio/blog/content.html.twig', [
-            'blog' => $blog
+            'blog' => $blog,
+        ]);
+    }
+
+    /**
+     * @Route("/portfolio/blog/post", name="blog_post")
+     */
+    public function postNewBlog()
+    {
+        $form = $this->createFormBuilder(new Blog())
+            ->add('title')
+            ->add('content')
+            ->getForm();
+
+        return $this->render('portfolio/blog/post.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
