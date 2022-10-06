@@ -3,34 +3,33 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<h1>投稿ブログ一覧</h1>
-{% if blogs | length > 0 %}
-    <table class="table" border="1">
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>タイトル</td>
-                <td>作成日</td>
-            </tr>
-        </thead>
-        <tbody>
+    <h1>投稿ブログ一覧</h1>
+    {% if blogs | length > 0 %}
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>タイトル</td>
+                    <td>作成日</td>
+                </tr>
+            </thead>
+            <tbody>
 
-        {% for blog in blogs %}
-            <tr>
-                <td><a href="#">{{ blog.id }}</a></td>
-                <td>{{ blog.title }}</td>
-                <td>{{ blog.createdAt|date('Y/m/d H:i') }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <p>投稿がありません</p>
-{% endif %}
-
+            {% for blog in blogs %}
+                <tr>
+                    <td><a href="{{ path('blog_content', {id: blog.id}) }}">{{ blog.id }}</a></td>
+                    <td>{{ blog.title }}</td>
+                    <td>{{ blog.createdAt|date('Y/m/d H:i') }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>投稿がありません</p>
+    {% endif %}
 {% endblock %}
