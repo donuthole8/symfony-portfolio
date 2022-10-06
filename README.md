@@ -42,11 +42,23 @@ https://localhost:8000/
 
 ### SQL
 ```
+# テーブル作成
 CREATE TABLE blog (
   id SERIAL NOT NULL,
   title VARCHAR(100) NOT NULL,
   content TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   PRIMARY KEY (id)
+);
+
+# ブログ投稿
+INSERT INTO blog (
+  title,
+  content,
+  created_at
+) VALUES (
+  'テスト投稿',
+  'こんにちは,Lomです.これからブログを投稿していきたいと思います.',
+  current_timestamp
 );
 ```
