@@ -13,9 +13,9 @@
 - 
 
 ## 使用技術
-- Symfony v
-- twig
-- PHP
+- Symfony v5.4.13
+- twig 
+- PHP 8.1.8
 
 ## 構成図
 
@@ -32,4 +32,21 @@ $ symfony server:start
 ```
 https://127.0.0.1:8000/
 https://localhost:8000/
+```
+
+## DB設計
+### blogテーブル
+| id | title | content | created_at |
+| ---- | ---- | ---- | ---- |
+| integer(not null, auto increment) | varchar(100) | text | timestamp |
+
+### SQL
+```
+CREATE TABLE blog (
+  id SERIAL NOT NULL,
+  title VARCHAR(100) NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+);
 ```
