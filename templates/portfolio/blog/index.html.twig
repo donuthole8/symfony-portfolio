@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block blog %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <h1>投稿ブログ一覧</h1>
+    <div class="row">
+        <a class="btn btn-primary" href="{{ path('blog_post') }}">記事投稿</a>
+    </div>
+    
+    {% if blogs | length > 0 %}
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>タイトル</td>
+                    <td>作成日</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            {# FIXME: 編集後の表示順が編集順になる #}
+            {% for blog in blogs %}
+                <tr>
+                    <td>{{ blog.id }}</td>
+                    <td><a href="{{ path('blog_content', {id: blog.id}) }}">{{ blog.title }}</a></td>
+                    <td>{{ blog.createdAt|date('Y/m/d H:i') }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('blog_edit', {id: blog.id}) }}">編集</a>
+                        <a class="btn btn-danger" href="{{ path('blog_delete', {id: blog.id}) }}">削除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>投稿がありません</p>
+    {% endif %}
+{% endblock %}
