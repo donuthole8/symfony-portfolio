@@ -28,8 +28,8 @@ class Blog
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100, nullable=false)
-     * @Constrains\NotBlank()
-     * @Constrains\Length(min="2", max="50")
+    //  * @Constrains\NotBlank()
+    //  * @Constrains\Length(min="2", max="50")
      */
     private $title;
 
@@ -37,8 +37,8 @@ class Blog
      * @var string
      *
      * @ORM\Column(name="content", type="text", nullable=false)
-     * @Constrains\NotBlank()
-     * @Constrains\Length(min="10")
+    //  * @Constrains\NotBlank()
+    //  * @Constrains\Length(min="10")
      */
     private $content;
 

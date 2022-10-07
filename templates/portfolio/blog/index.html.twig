@@ -20,15 +20,20 @@
                     <td>ID</td>
                     <td>タイトル</td>
                     <td>作成日</td>
+                    <td>操作</td>
                 </tr>
             </thead>
             <tbody>
 
+            {# FIXME: 編集後の表示順が編集順になる #}
             {% for blog in blogs %}
                 <tr>
                     <td><a href="{{ path('blog_content', {id: blog.id}) }}">{{ blog.id }}</a></td>
                     <td>{{ blog.title }}</td>
                     <td>{{ blog.createdAt|date('Y/m/d H:i') }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('blog_edit', {id: blog.id}) }}">編集</a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

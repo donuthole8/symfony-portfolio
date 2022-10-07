@@ -26,12 +26,14 @@ class BlogController extends AbstractController
     /**
      * @Route("/portfolio/blog/{id}", name="blog_content", requirements={"id"="\d+"})
      */
-    public function showContentPage($id, EntityManagerInterface $em)
+    public function showContentPage(EntityManagerInterface $em, $id)
     {
         $blog = $em->getRepository(Blog::class)->find($id);
 
         if (!$blog) {
-            throw $this->createNotFoundException('The post does not exist');
+            throw $this->createNotFoundException(
+                'The post does not exist'
+            );
         }
 
         return $this->render('portfolio/blog/content.html.twig', [
@@ -59,6 +61,37 @@ class BlogController extends AbstractController
             $em->flush();
         
             // 一覧へリダイレクト
+            return $this->redirectToRoute('blog_index');
+        }
+
+        return $this->render('portfolio/blog/post.html.twig', [
+            'blog' => $blog,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/portfolio/blog/{id}/edit", name="blog_edit", requirements={"id"="\d+"})
+     */
+    public function editContentPage(Request $request, EntityManagerInterface $em, $id)
+    {
+        $blog = $em->getRepository(Blog::class)->find($id);
+
+        if (!$blog) {
+            throw $this->createNotFoundException(
+                'The post does not exist'
+            );
+        }
+
+        $form = $this->createFormBuilder($blog)
+            ->add('title')
+            ->add('content')
+            ->getForm();
+        
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+
             return $this->redirectToRoute('blog_index');
         }
 

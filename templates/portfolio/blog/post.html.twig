@@ -1,8 +1,9 @@
 {% block body %}
   {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-  {{ form_widget(form) }}
-  <button type="submit" class="btn btn-primary">投稿</button>
+    {{ form_widget(form) }}
+    <p><a href="{{ path('blog_index') }}">戻る</a></p>
+    {# NOTE: なぜblog.idで編集と投稿を判別できる？ #}
+    <button type="submit" class="btn btn-primary">{{ blog.id ? '編集': '投稿' }}</button>
   {{ form_end(form) }}
 
-  <p><a href="{{ path('blog_index') }}">戻る</a></p>
 {% endblock %}
