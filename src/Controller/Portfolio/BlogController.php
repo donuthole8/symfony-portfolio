@@ -32,7 +32,7 @@ class BlogController extends AbstractController
 
         if (!$blog) {
             throw $this->createNotFoundException(
-                'The post does not exist'
+                '指定されたブログは見つかりませんでした'
             );
         }
 
@@ -79,7 +79,7 @@ class BlogController extends AbstractController
 
         if (!$blog) {
             throw $this->createNotFoundException(
-                'The post does not exist'
+                '指定されたブログは見つかりませんでした'
             );
         }
 
@@ -99,5 +99,24 @@ class BlogController extends AbstractController
             'blog' => $blog,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/portfolio/blog/{id}/delete", name="blog_delete", requirements={"id"="\d+"})
+     */
+    public function deleteContentPage(EntityManagerInterface $em, $id)
+    {
+        $blog = $em->getRepository(Blog::class)->find($id);
+
+        if (!$blog) {
+            throw $this->createNotFoundException(
+                '指定されたブログは見つかりませんでした'
+            );
+        }
+
+        $em->remove($blog);
+        $em->flush();
+
+        return $this->redirectToRoute('blog_index');
     }
 }
