@@ -1,6 +1,8 @@
 {% block body %}
-  {{ form_start(form) }}
+  {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
   {{ form_widget(form) }}
   <button type="submit" class="btn btn-primary">投稿</button>
   {{ form_end(form) }}
+
+  <p><a href="{{ path('blog_index') }}">戻る</a></p>
 {% endblock %}
