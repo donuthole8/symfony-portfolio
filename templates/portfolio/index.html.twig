@@ -9,19 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/murohisashimasakado/Documents/apps/symfony_tutorial/src/Controller/PortfolioController.php'|file_link(0) }}">src/Controller/PortfolioController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/murohisashimasakado/Documents/apps/symfony_tutorial/templates/portfolio/index.html.twig'|file_link(0) }}">templates/portfolio/index.html.twig</a></code></li>
-    </ul>
+    <h1>My Portfolio</h1>
+    <h2>Muronaga Masato</h2>
 
     <h2><a href="{{ path('about_index') }}">概要</a></h2>
     <h2><a href="{{ path('skills_index') }}">技術</a></h2>
     <h2><a href="{{ path('works_index') }}">制作物</a></h2>
     <h2><a href="{{ path('blog_index') }}">ブログ</a></h2>
     <h2><a href="{{ path('links_index') }}">リンク</a></h2>
-
 </div>
 {% endblock %}
