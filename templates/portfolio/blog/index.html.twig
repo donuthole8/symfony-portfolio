@@ -28,8 +28,8 @@
             {# FIXME: 編集後の表示順が編集順になる #}
             {% for blog in blogs %}
                 <tr>
-                    <td><a href="{{ path('blog_content', {id: blog.id}) }}">{{ blog.id }}</a></td>
-                    <td>{{ blog.title }}</td>
+                    <td>{{ blog.id }}</td>
+                    <td><a href="{{ path('blog_content', {id: blog.id}) }}">{{ blog.title }}</a></td>
                     <td>{{ blog.createdAt|date('Y/m/d H:i') }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ path('blog_edit', {id: blog.id}) }}">編集</a>
