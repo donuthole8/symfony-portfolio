@@ -1,0 +1,167 @@
+/* 全体 */
+body {
+	color: #555;
+	font-family: Verdana;
+	background: #eee;
+	/* font-family: sans-serif; */
+}
+
+/* ヘッダ */
+header {
+	padding: 10px;
+	margin: auto;
+	/* width: 400px; */
+	/* background-image: url(../image/desk.jpg); */
+	background-size: cover;
+	opacity: 0.7;
+	padding: 160px 0;
+	/* background-color: #efefef; */
+}
+
+/* ヘッダ */
+.header {
+	/* width: 400px; */
+	/* margin-left: auto; */
+	/* margin-right: auto; */
+	/* margin-bottom: auto; */
+	display: flex;
+	align-items: center;
+}
+
+/* アイコン */
+.icon img {
+	border-radius: 20px;
+	border-radius: 50%;
+	border-width: 10px;
+	border-style: solid;
+	border-color: #000;
+	margin-left: 0;
+}
+
+/* ヘッダ紹介文 */
+.info {
+	margin-left: 32px;
+}
+
+/* portfolio */
+.info p {
+	margin: 0;
+	margin-bottom: 16px;
+	font-size: 24px;
+	width: 400px;
+	text-align: center;
+	color: black;
+	/* opacity: 0.8; */
+}
+
+/* Muronaga Masato */
+.info h1 {
+	font-weight: normal;
+	font-size: 30px;
+	margin: 0;
+	color: black;
+
+	text-align: center;
+}
+
+
+
+
+
+/* 本文 */
+
+.container {
+	width: 1000px;
+	padding: 0 15px;
+}
+
+.bg-img {
+	/* background-image: url(../image/desk.jpg); */
+	background-size: cover;
+	margin: 0 auto;
+	/* background-color: red; */
+}
+
+.about {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.skill {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.works {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.contact h1 {
+	/* background: #eee; */
+	margin: auto;
+	/* width: 600px; */
+	margin-top: 60px;
+	margin-bottom: 30px;
+	text-align: center;
+	padding: auto;
+}
+
+form {
+	background: #fefefe;
+	margin: 0 auto;
+	width: 400px;
+	padding: 1em;
+	border: 1px solid #ccc;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* liとliで隣接しているもののみ以下のcssを適用 */
+form li + li {
+	margin-top: 1em;
+}
+
+label {
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+}
+
+input, textarea {
+	font: 1em sans-serif;
+	width: 300px;
+	box-sizing: border-box;
+	border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+	border-color: #000;
+}
+
+textarea {
+	vertical-align: top;
+	height: 5em;
+}
+
+.button {
+	padding-left: 90px;
+}
+
+button {
+	margin-left: 0.5em;
+}
+
+footer {
+	width: 400px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
