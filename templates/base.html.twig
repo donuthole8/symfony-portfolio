@@ -8,6 +8,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>{% block title %}{{ block('page_title') }} - Symfony Blog{% endblock title %}</title>
+
+    {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+
+        <!-- Renders a link tag (if your module requires any CSS)
+            <link rel="stylesheet" href="/build/app.css"> -->
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+
+        <!-- Renders app.js & a webpack runtime.js file
+            <script src="/build/runtime.js" defer></script>
+            <script src="/build/app.js" defer></script>
+            See note below about the "defer" attribute -->
+    {% endblock %}
 </head>
     <body>
         {# ヘッダー #}
